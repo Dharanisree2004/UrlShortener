@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    image: dharani/urlshortener
+    ports:
+      - "8090:8067"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/urlshortener
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0.27
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: urlshortener
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: root
