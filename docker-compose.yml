@@ -4,20 +4,20 @@ services:
   app:
     image: dharani/urlshortener
     ports:
-      - "8090:8067"  # Correcting the port mapping to match your application configuration
+      - "8090:8090"  # Adjusting the port mapping to the correct one
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/urlshortener  # This matches the service name 'db'
-      SPRING_DATASOURCE_USERNAME: root  # Use root as per your Spring configuration or update as needed
-      SPRING_DATASOURCE_PASSWORD: Dharani@2004  # Same as in application.properties
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/urlshortener  # Use 'db' as per Docker service name
+      SPRING_DATASOURCE_USERNAME: root  # Same as Spring configuration
+      SPRING_DATASOURCE_PASSWORD: Dharani@2004  # Same as Spring configuration
     depends_on:
       - db
 
   db:
     image: mysql:8.0.27
     environment:
-      MYSQL_ROOT_PASSWORD: Dharani@2004  # Ensure this matches with Spring Boot password if needed
+      MYSQL_ROOT_PASSWORD: Dharani@2004
       MYSQL_DATABASE: urlshortener
-      MYSQL_USER: root  # Ensure this matches with Spring Boot username if needed
-      MYSQL_PASSWORD: Dharani@2004  # Ensure this matches with Spring Boot password if needed
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Dharani@2004
     ports:
-      - "3307:3306"  # Optional, for external MySQL access
+      - "3307:3306"  # Optional for external MySQL access (can be omitted if not needed)
