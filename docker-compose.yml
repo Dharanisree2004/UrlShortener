@@ -20,4 +20,4 @@ services:
       MYSQL_USER: root  # Ensure this matches with Spring Boot username if needed
       MYSQL_PASSWORD: Dharani@2004  # Ensure this matches with Spring Boot password if needed
     ports:
-      - "3306:3306"  # Optional, for external MySQL access
+      - "3307:3306"  # Optional, for external MySQL access
