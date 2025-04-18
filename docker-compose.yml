@@ -4,7 +4,7 @@ services:
   app:
     image: dharani/urlshortener
     ports:
-      - "8090:8090"  # Correcting the port mapping to match your application configuration
+      - "8090:8067"  # Correcting the port mapping to match your application configuration
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/urlshortener  # This matches the service name 'db'
       SPRING_DATASOURCE_USERNAME: root  # Use root as per your Spring configuration or update as needed
