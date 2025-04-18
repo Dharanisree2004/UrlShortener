@@ -11,7 +11,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo "Cloning project repository..."
-                git branch: 'main', url: 'https://github.com/Dharanisree2004/UrlShortener.git'   // replace with your actual repo URL
+                git branch: 'main', url: 'https://github.com/Dharanisree2004/UrlShortener.git'
             }
         }
 
