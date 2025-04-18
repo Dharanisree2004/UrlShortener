@@ -37,6 +37,13 @@ pipeline {
             }
         }
 
+        stage('Wait for MySQL to be Ready') {
+            steps {
+                echo "Waiting for MySQL to be ready..."
+                sh 'wait-for-it db:3306 --timeout=30 --strict -- echo "MySQL is up"'
+            }
+        }
+
         stage('Display API Endpoints') {
             steps {
                 script {
