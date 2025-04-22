@@ -1,28 +1,20 @@
 version: '3.5'
 
 services:
-  # MySQL database for springboot app
   db_mysql:
     container_name: 'deployment_db_mysql'
-    image: mysql:5.7    
+    image: mysql:8.0.27  # Updated to MySQL 8
     environment:      
-      MYSQL_DATABASE: 'db_spring'              
-      MYSQL_USER: 'user'      
-      MYSQL_PASSWORD: 'password'      
-      MYSQL_ROOT_PASSWORD: 'password'
-      MYSQL_TCP_PORT: 3366
+      MYSQL_DATABASE: 'urlshortener'              
+      MYSQL_USER: 'urluser'      
+      MYSQL_PASSWORD: "Dharani@2004"  # Quoted
+      MYSQL_ROOT_PASSWORD: "Dharani@2004"  # Quoted
     ports:
-      - 3366:3366
-    expose:
-      - '3366'
+      - 3366:3306  # Map host 3366 → container 3306
     volumes:    
-      - ./db_mysql:/docker-entrypoint-initdb.d/
       - db_mysql:/var/lib/mysql
     networks:
       - network      
-    mem_limit: 512m
-    mem_reservation: 128M
-    cpus: 0.5
 
 networks:  
   network:    
